@@ -33,8 +33,7 @@ const handler = async function (event) {
     const result = await axios.get(url);
     const app = ReactDOMServer.renderToString(<SSRApp data={result.data} />);
     const html = indexFile.replace(
-      '<div id="root"></div>',
-      `<div id="root">${app}</div>`
+      '<div id="root"></div>', `<div id="root">${app}</div>`
     );
     return {
       statusCode: 200,
